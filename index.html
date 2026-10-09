@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101828">
+  <title>JobLink AI | Your Next Job Starts Here</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+    header {
+      background: #101828;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header strong { font-size: 25px; }
+    header span { color: #72e0b0; }
+    .hero {
+      background: #101828;
+      color: white;
+      padding: 45px 22px 55px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 36px; margin: 0 0 16px; }
+    .hero p { color: #d0d5dd; line-height: 1.6; }
+    .button {
+      display: inline-block;
+      background: #16a878;
+      color: white;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 9px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 12px;
+    }
+    main { max-width: 700px; margin: auto; padding: 24px 16px; }
+    .card {
+      background: white;
+      padding: 22px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px #1018280c;
+    }
+    h2 { margin-top: 0; }
+    label { display: block; margin: 15px 0 7px; font-weight: bold; }
+    textarea, input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d0d5dd;
+      border-radius: 8px;
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    .note { font-size: 13px; color: #667085; line-height: 1.5; }
+    #result { display: none; line-height: 1.6; overflow-wrap: anywhere; }
+    footer { text-align: center; padding: 25px; color: #667085; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>JobLink <span>AI</span></strong>
+    <p>Your next opportunity starts here.</p>
+  </header>
+
+  <section class="hero">
+    <h1>Make your next application stronger.</h1>
+    <p>Prepare a better CV and cover letter for jobs in South Africa.</p>
+    <a class="button" href="#analyser">Try the free job analyser</a>
+  </section>
+
+  <main>
+    <section class="card">
+      <h2>Built for South African job seekers 🇿🇦</h2>
+      <p>Understand job requirements, identify missing skills and prepare a more relevant application.</p>
+      <p class="note">JobLink AI is a work in progress. It does not guarantee interviews or employment.</p>
+    </section>
+
+    <section class="card" id="analyser">
+      <h2>Check your job match</h2>
+      <label for="cv">Paste your CV text</label>
+      <textarea id="cv" placeholder="Paste your CV here..."></textarea>
+
+      <label for="job">Paste the job advertisement</label>
+      <textarea id="job" placeholder="Paste the job requirements here..."></textarea>
+
+      <button class="button" onclick="analyse()">Analyse my match</button>
+      <div id="result" class="card" aria-live="polite"></div>
+      <p class="note">Prototype only: this first version compares words in your CV and the advert. It does not yet use an AI service. Your text is processed in this page and is not uploaded by this tool.</p>
+    </section>
+
+    <section class="card">
+      <h2>Coming next</h2>
+      <p>✨ CV improvement suggestions</p>
+      <p>✉️ Tailored cover letters</p>
+      <p>📋 Application tracking</p>
+      <p>📄 Downloadable CV documents</p>
+    </section>
+
+    <section class="card">
+      <h2>Simple pricing</h2>
+      <p><strong>Free</strong> — R0 to get started</p>
+      <p><strong>Plus</strong> — planned at R49/month</p>
+      <p><strong>Pro</strong> — planned at R99/month</p>
+      <p class="note">These are proposed prices, not active subscriptions.</p>
+    </section>
+  </main>
+
+  <footer>© 2026 JobLink AI · Made for job seekers in South Africa</footer>
+
+  <script>
+    function analyse() {
+      const cv = document.getElementById('cv').value.trim().toLowerCase();
+      const job = document.getElementById('job').value.trim().toLowerCase();
+      const result = document.getElementById('result');
+
+      if (!cv || !job) {
+        alert('Please paste both your CV and the job advertisement.');
+        return;
+      }
+
+      const words = text => [...new Set(
+        text.match(/[a-z0-9+#.]+/g) || []
+      )].filter(w => w.length > 2);
+
+      const cvWords = new Set(words(cv));
+      const jobWords = words(job);
+      const matched = jobWords.filter(w => cvWords.has(w));
+      const missing = jobWords.filter(w => !cvWords.has(w));
+      const score = Math.round(matched.length / jobWords.length * 100);
+
+      result.style.display = 'block';
+      result.innerHTML = `
+        <h2>Preliminary match: ${score}%</h2>
+        <p>This is a basic word-overlap estimate, not an AI assessment or a measure of your true suitability.</p>
+        <h3>Words found in both</h3>
+        <p>${matched.slice(0, 30).join(', ') || 'No clear matches yet.'}</p>
+        <h3>Words to review</h3>
+        <p>${missing.slice(0, 30).join(', ') || 'No unmatched words in this basic check.'}</p>
+        <p>Only add skills and experience to your CV if they are true for you.</p>
+      `;
+      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>
