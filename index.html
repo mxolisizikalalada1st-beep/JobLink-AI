@@ -2,153 +2,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101828">
-  <title>JobLink AI | Your Next Job Starts Here</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-    }
-    header {
-      background: #101828;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header strong { font-size: 25px; }
-    header span { color: #72e0b0; }
-    .hero {
-      background: #101828;
-      color: white;
-      padding: 45px 22px 55px;
-      text-align: center;
-    }
-    .hero h1 { font-size: 36px; margin: 0 0 16px; }
-    .hero p { color: #d0d5dd; line-height: 1.6; }
-    .button {
-      display: inline-block;
-      background: #16a878;
-      color: white;
-      padding: 14px 22px;
-      border: 0;
-      border-radius: 9px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 12px;
-    }
-    main { max-width: 700px; margin: auto; padding: 24px 16px; }
-    .card {
-      background: white;
-      padding: 22px;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      box-shadow: 0 4px 18px #1018280c;
-    }
-    h2 { margin-top: 0; }
-    label { display: block; margin: 15px 0 7px; font-weight: bold; }
-    textarea, input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #d0d5dd;
-      border-radius: 8px;
-      font: inherit;
-    }
-    textarea { min-height: 120px; resize: vertical; }
-    .note { font-size: 13px; color: #667085; line-height: 1.5; }
-    #result { display: none; line-height: 1.6; overflow-wrap: anywhere; }
-    footer { text-align: center; padding: 25px; color: #667085; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101828">
+<title>JobLink AI | Find Your Next Opportunity</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#172033;background:#fff;line-height:1.6}
+header{background:#101828;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:800}.logo span{color:#7c9cff}
+nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;text-decoration:none;font-size:14px}
+.hero{padding:65px 6%;text-align:center;background:linear-gradient(140deg,#edf2ff,#f7f9ff)}
+.tag{color:#315efb;font-weight:bold;font-size:13px}
+h1{font-size:clamp(34px,7vw,55px);line-height:1.12;margin:14px auto;max-width:750px}
+.hero p{color:#596579;max-width:620px;margin:18px auto 25px}
+button,.button{border:0;border-radius:9px;background:#315efb;color:white;padding:13px 18px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.secondary{background:#e7edff;color:#244be0}
+section{padding:45px 6%}
+.container{max-width:1000px;margin:auto}
+h2{font-size:28px;margin:0 0 8px}
+.muted{color:#667085}
+.search{display:flex;gap:10px;margin:22px 0;flex-wrap:wrap}
+input,textarea,select{width:100%;padding:13px;border:1px solid #d8deea;border-radius:8px;background:white;color:#172033}
+.search input{flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:22px}
+.card{border:1px solid #e3e7ef;border-radius:13px;padding:20px;background:white}
+.card h3{margin:5px 0;font-size:19px}
+.company{color:#667085;font-size:14px}
+.pill{display:inline-block;background:#edf2ff;color:#315efb;padding:4px 9px;border-radius:20px;font-size:12px;margin:8px 0}
+.salary{font-weight:bold;margin:8px 0}
+.tools{background:#f6f8fc}
+label{font-weight:bold;display:block;margin:14px 0 6px}
+textarea{min-height:110px;resize:vertical}
+.result{background:#f0f4ff;padding:15px;border-radius:9px;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:15px}
+footer{background:#101828;color:#dbe3f4;padding:30px 6%;text-align:center;font-size:13px}
+.small{font-size:12px;color:#667085}
+@media(max-width:500px){header{align-items:flex-start}nav{gap:12px}.hero{padding:48px 5%}section{padding:35px 5%}}
+</style>
 </head>
 <body>
-  <header>
-    <strong>JobLink <span>AI</span></strong>
-    <p>Your next opportunity starts here.</p>
-  </header>
+<header>
+  <div class="logo">JobLink <span>AI</span></div>
+  <nav>
+    <a href="#jobs">Find Jobs</a>
+    <a href="#cv">CV Builder</a>
+    <a href="#letter">Cover Letter</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Make your next application stronger.</h1>
-    <p>Prepare a better CV and cover letter for jobs in South Africa.</p>
-    <a class="button" href="#analyser">Try the free job analyser</a>
-  </section>
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="tag">YOUR CAREER. YOUR FUTURE.</div>
+    <h1>Your next opportunity starts here.</h1>
+    <p>Discover career opportunities and create stronger job applications with simple, accessible tools built for job seekers in South Africa.</p>
+    <a class="button" href="#jobs">Explore Jobs</a>
+    <a class="button secondary" href="#cv">Build My CV</a>
+  </div>
+</section>
 
-  <main>
-    <section class="card">
-      <h2>Built for South African job seekers 🇿🇦</h2>
-      <p>Understand job requirements, identify missing skills and prepare a more relevant application.</p>
-      <p class="note">JobLink AI is a work in progress. It does not guarantee interviews or employment.</p>
-    </section>
+<section id="jobs">
+  <div class="container">
+    <h2>Explore opportunities</h2>
+    <p class="muted">Search the example listings below or use the job links to find real vacancies.</p>
+    <div class="search">
+      <input id="keyword" placeholder="Job title or keyword">
+      <input id="location" placeholder="City, e.g. Durban">
+      <button onclick="searchJobs()">Search</button>
+    </div>
+    <div id="jobList" class="grid"></div>
+    <p class="small">Demo listings only. These are not confirmed vacancies. Verify every opportunity with the employer before applying.</p>
+    <p><a class="button secondary" href="https://www.careers24.com/" target="_blank" rel="noopener">Browse Careers24</a>
+    <a class="button secondary" href="https://za.indeed.com/" target="_blank" rel="noopener">Browse Indeed</a></p>
+  </div>
+</section>
 
-    <section class="card" id="analyser">
-      <h2>Check your job match</h2>
-      <label for="cv">Paste your CV text</label>
-      <textarea id="cv" placeholder="Paste your CV here..."></textarea>
+<section id="cv" class="tools">
+  <div class="container">
+    <h2>Free CV builder</h2>
+    <p class="muted">Enter your details to create a CV draft you can copy and save.</p>
+    <label for="fullname">Full name</label>
+    <input id="fullname" placeholder="Your full name">
+    <label for="contact">Phone and email</label>
+    <input id="contact" placeholder="Your contact details">
+    <label for="target">Job you want</label>
+    <input id="target" placeholder="e.g. Driver, cashier, warehouse assistant">
+    <label for="experience">Work experience</label>
+    <textarea id="experience" placeholder="Your previous jobs and responsibilities"></textarea>
+    <label for="education">Education and qualifications</label>
+    <textarea id="education" placeholder="Your education, licence and certificates"></textarea>
+    <label for="skills">Skills</label>
+    <textarea id="skills" placeholder="Your relevant skills"></textarea>
+    <button onclick="makeCV()">Generate CV draft</button>
+    <div id="cvResult" class="result" hidden></div>
+    <button id="copyCV" class="secondary" onclick="copyText('cvResult')" hidden>Copy CV</button>
+  </div>
+</section>
 
-      <label for="job">Paste the job advertisement</label>
-      <textarea id="job" placeholder="Paste the job requirements here..."></textarea>
+<section id="letter">
+  <div class="container">
+    <h2>Cover letter assistant</h2>
+    <p class="muted">Create a tailored first draft for your application.</p>
+    <label for="applicant">Your name</label>
+    <input id="applicant" placeholder="Your full name">
+    <label for="role">Position</label>
+    <input id="role" placeholder="Position you're applying for">
+    <label for="employer">Company</label>
+    <input id="employer" placeholder="Company name">
+    <label for="strengths">Experience and strengths</label>
+    <textarea id="strengths" placeholder="Explain your experience and why you fit the job"></textarea>
+    <button onclick="makeLetter()">Create cover letter</button>
+    <div id="letterResult" class="result" hidden></div>
+    <button id="copyLetter" class="secondary" onclick="copyText('letterResult')" hidden>Copy letter</button>
+    <p class="small">This is a template-based assistant, not a connected AI service. Review and personalise the result before sending.</p>
+  </div>
+</section>
+</main>
 
-      <button class="button" onclick="analyse()">Analyse my match</button>
-      <div id="result" class="card" aria-live="polite"></div>
-      <p class="note">Prototype only: this first version compares words in your CV and the advert. It does not yet use an AI service. Your text is processed in this page and is not uploaded by this tool.</p>
-    </section>
+<footer>
+  <div class="logo">JobLink <span>AI</span></div>
+  Helping South Africans take their next career step.
+  <p>© <span id="year"></span> JobLink AI. All rights reserved.</p>
+</footer>
 
-    <section class="card">
-      <h2>Coming next</h2>
-      <p>✨ CV improvement suggestions</p>
-      <p>✉️ Tailored cover letters</p>
-      <p>📋 Application tracking</p>
-      <p>📄 Downloadable CV documents</p>
-    </section>
-
-    <section class="card">
-      <h2>Simple pricing</h2>
-      <p><strong>Free</strong> — R0 to get started</p>
-      <p><strong>Plus</strong> — planned at R49/month</p>
-      <p><strong>Pro</strong> — planned at R99/month</p>
-      <p class="note">These are proposed prices, not active subscriptions.</p>
-    </section>
-  </main>
-
-  <footer>© 2026 JobLink AI · Made for job seekers in South Africa</footer>
-
-  <script>
-    function analyse() {
-      const cv = document.getElementById('cv').value.trim().toLowerCase();
-      const job = document.getElementById('job').value.trim().toLowerCase();
-      const result = document.getElementById('result');
-
-      if (!cv || !job) {
-        alert('Please paste both your CV and the job advertisement.');
-        return;
-      }
-
-      const words = text => [...new Set(
-        text.match(/[a-z0-9+#.]+/g) || []
-      )].filter(w => w.length > 2);
-
-      const cvWords = new Set(words(cv));
-      const jobWords = words(job);
-      const matched = jobWords.filter(w => cvWords.has(w));
-      const missing = jobWords.filter(w => !cvWords.has(w));
-      const score = Math.round(matched.length / jobWords.length * 100);
-
-      result.style.display = 'block';
-      result.innerHTML = `
-        <h2>Preliminary match: ${score}%</h2>
-        <p>This is a basic word-overlap estimate, not an AI assessment or a measure of your true suitability.</p>
-        <h3>Words found in both</h3>
-        <p>${matched.slice(0, 30).join(', ') || 'No clear matches yet.'}</p>
-        <h3>Words to review</h3>
-        <p>${missing.slice(0, 30).join(', ') || 'No unmatched words in this basic check.'}</p>
-        <p>Only add skills and experience to your CV if they are true for you.</p>
-      `;
-      result.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  </script>
+<script>
+const jobs=[
+ {title:"Delivery Driver",company:"Example Logistics",location:"Durban",salary:"Salary not confirmed",type:"Full-time"},
+ {title:"Customer Service Assistant",company:"Example Retail",location:"Durban",salary:"Salary not confirmed",type:"Full-time"},
+ {title:"Warehouse Assistant",company:"Example Distribution",location:"Pinetown",salary:"Salary not confirmed",type:"Full-time"},
+ {title:"Sales Assistant",company:"Example Stores",location:"Umhlanga",salary:"Salary not confirmed",type:"Full-time"},
+ {title:"Office Administrator",company:"Example Services",location:"Durban",salary:"Salary not confirmed",type:"Full-time"},
+ {title:"General Worker",company:"Example Operations",location:"Westville",salary:"Salary not confirmed",type:"Full-time"}
+];
+function searchJobs(){
+ const k=document.getElementById("keyword").value.toLowerCase().trim();
+ const l=document.getElementById("location").value.toLowerCase().trim();
+ const filtered=jobs.filter(j=>(j.title+" "+j.company+" "+j.type).toLowerCase().includes(k)&&j.location.toLowerCase().includes(l));
+ const list=document.getElementById("jobList");
+ list.innerHTML="";
+ if(!filtered.length){list.innerHTML="<p>No demo listings match. Try another keyword or location, or browse the job websites above.</p>";return}
+ filtered.forEach(j=>{
+  const card=document.createElement("article");card.className="card";
+  const h=document.createElement("h3");h.textContent=j.title;
+  const c=document.createElement("div");c.className="company";c.textContent=j.company+" · "+j.location;
+  const p=document.createElement("div");p.className="pill";p.textContent=j.type;
+  const s=document.createElement("div");s.className="salary";s.textContent=j.salary;
+  const note=document.createElement("p");note.className="small";note.textContent="Illustrative example — not a verified vacancy.";
+  card.append(h,c,p,s,note);list.appendChild(card);
+ });
+}
+function val(id){return document.getElementById(id).value.trim()}
+function showResult(id,copyId,text){
+ document.getElementById(id).textContent=text;
+ document.getElementById(id).hidden=false;
+ document.getElementById(copyId).hidden=false;
+}
+function makeCV(){
+ const name=val("fullname"),contact=val("contact"),target=val("target"),exp=val("experience"),edu=val("education"),skills=val("skills");
+ if(!name||!target){alert("Please enter your name and the job you want.");return}
+ showResult("cvResult","copyCV",
+ name.toUpperCase()+"\n"+contact+"\n\nPROFESSIONAL PROFILE\nMotivated candidate seeking a "+target+" position. Ready to contribute, learn and work responsibly.\n\nWORK EXPERIENCE\n"+(exp||"Add your work experience here.")+"\n\nEDUCATION AND QUALIFICATIONS\n"+(edu||"Add your education and qualifications here.")+"\n\nKEY SKILLS\n"+(skills||"Add your relevant skills here.")+"\n\nREFERENCES\nAvailable on request.");
+}
+function makeLetter(){
+ const name=val("applicant"),role=val("role"),employer=val("employer"),strengths=val("strengths");
+ if(!name||!role||!employer){alert("Please enter your name, the position and the company.");return}
+ showResult("letterResult","copyLetter",
+ "Dear Hiring Manager,\n\nI am writing to apply for the "+role+" position at "+employer+". I am interested in this opportunity and would welcome the chance to contribute to your team.\n\n"+(strengths||"I am willing to learn, work hard and carry out my responsibilities professionally.")+"\n\nThank you for considering my application. I would appreciate the opportunity to discuss my suitability for this position.\n\nKind regards,\n"+name);
+}
+async function copyText(id){
+ const text=document.getElementById(id).textContent;
+ try{await navigator.clipboard.writeText(text);alert("Copied! You can paste it into Notes or your application.");}
+ catch(e){const area=document.createElement("textarea");area.value=text;document.body.appendChild(area);area.select();document.execCommand("copy");area.remove();alert("Copy attempted. If it failed, press and hold the result text to copy it.");}
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+searchJobs();
+</script>
 </body>
 </html>
