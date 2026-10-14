@@ -437,6 +437,40 @@ function setToday(){
 loadApplications();
 setToday();
 renderApplications();
+  const CV_STORAGE_KEY = "joblink_cv_details";
+const cvFieldIds = [
+  "cvName", "cvPhone", "cvEmail", "cvLocation",
+  "cvTarget", "cvSummary", "cvExperience", "cvEducation"
+];
+
+function saveCVDetails() {
+  try {
+    const details = {};
+    cvFieldIds.forEach(id => {
+      details[id] = document.getElementById(id).value;
+    });
+    localStorage.setItem(CV_STORAGE_KEY, JSON.stringify(details));
+  } catch (error) {}
+}
+
+function loadCVDetails() {
+  try {
+    const saved = localStorage.getItem(CV_STORAGE_KEY);
+    if (!saved) return;
+    const details = JSON.parse(saved);
+    cvFieldIds.forEach(id => {
+      const field = document.getElementById(id);
+      if (field && typeof details[id] === "string") {
+        field.value = details[id];
+      }
+    });
+  } catch (error) {}
+}
+
+loadCVDetails();
+cvFieldIds.forEach(id => {
+  document.getElementById(id).addEventListener("input", saveCVDetails);
+});
 </script>
 </body>
 </html>
