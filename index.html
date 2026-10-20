@@ -277,15 +277,26 @@ function fallbackCopy(value){
 }
 
 function printDocument(id){
-  const el=document.getElementById(id);
-  if(!el){alert("Create your document first.");return;}
-  const area=document.getElementById("printArea");
-  area.textContent=el.textContent;
-  area.hidden=false;
-  window.print();
-  area.hidden=true;
-}
+  const el = document.getElementById(id);
+  if (!el) {
+    alert("Create your document first.");
+    return;
+  }
 
+  const area = document.getElementById("printArea");
+  area.textContent = el.textContent;
+  area.hidden = false;
+  area.style.display = "block";
+
+  window.addEventListener("afterprint", function cleanup(){
+    area.hidden = true;
+    area.style.display = "none";
+  }, { once: true });
+
+  setTimeout(function(){
+    window.print();
+  }, 250);
+}
 const STORAGE_KEY="joblink_applications";
 let applications=[];
 let editingId=null;
